@@ -3,12 +3,34 @@
 > Deep-AE is an intelligent Structural Health Monitoring (SHM) platform that detects structural crack-related acoustic emissions using Deep Learning, Mel Spectrogram analysis, and CNN-based audio classification.
 
 ---
+# 🌐 Live Demo
 
-## 🌐 Live Demo
+Experience the live Deep-AE AI monitoring dashboard here:
 
-[Launch Deep-AE Dashboard]: (https://deepae.streamlit.app)
+🔗 **Live Application:**
+https://deepae.streamlit.app
 
 ---
+
+## 🚀 What You Can Do
+
+* Upload structural acoustic audio files
+* Analyze crack-related acoustic emissions
+* Visualize Mel Spectrograms
+* View AI-generated predictions
+* Monitor confidence analytics in real time
+
+---
+
+## 🎯 Demo Features
+
+✅ AI-Powered Crack Detection
+✅ Interactive Monitoring Dashboard
+✅ Audio Waveform Visualization
+✅ Mel Spectrogram Analysis
+✅ CNN-Based Prediction System
+✅ Modern Enterprise-Style UI
+
 
 ## 📌 Project Overview
 
