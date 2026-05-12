@@ -1,0 +1,48 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyTorch
+*.pth
+*.pt
+# EXCEPT the main model
+!models/deepae_cnn.pth
+
+# Logs
+logs/
+*.log
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Streamlit
+.streamlit/
+!app/.streamlit/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Datasets & Temp Files
+dataset/
+predictions/
+*.wav
+*.mp3
+*.flac
+*.png
+*.jpg
+*.jpeg
+# EXCEPT sample audio & assets
+!sample_audio/*.wav
+!assets/*.png
+!assets/*.jpg
+
+# System Files
+.DS_Store
+Thumbs.db
