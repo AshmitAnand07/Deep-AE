@@ -4,6 +4,12 @@
 
 ---
 
+## 🌐 Live Demo
+
+[Launch Deep-AE Dashboard]: (https://deepae.streamlit.app)
+
+---
+
 ## 📌 Project Overview
 
 Modern bridges and civil infrastructures often develop internal cracks long before visible failure occurs. These fractures generate high-frequency acoustic emissions that can be captured and analyzed.
