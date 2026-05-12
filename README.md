@@ -1,114 +1,254 @@
-# Deep-AE: AI-Powered Acoustic Structural Health Monitoring
+# 🚧 Deep-AE — AI-Powered Acoustic Structural Crack Detection
 
-![Deep-AE Platform Banner](assets/banner_placeholder.png)
-
-> **Deep-AE** is a modern, production-ready machine learning platform designed to detect structural anomalies (cracks vs. healthy states) using acoustic emission analysis and Deep Convolutional Neural Networks (CNNs).
+> Deep-AE is an intelligent Structural Health Monitoring (SHM) platform that detects structural crack-related acoustic emissions using Deep Learning, Mel Spectrogram analysis, and CNN-based audio classification.
 
 ---
 
 ## 📌 Project Overview
-Structural health monitoring traditionally relies on expensive, specialized hardware. Deep-AE provides an accessible, AI-driven alternative by analyzing acoustic signatures using standard audio files. By converting raw audio waveforms into **Mel Spectrograms**, the system leverages a custom CNN to identify structural cracking with high confidence.
 
-**Key Features:**
-- 🎵 **Automated Audio DSP Pipeline**: Converts `.wav`, `.mp3`, and `.flac` files to 22050Hz, trims silence, normalizes amplitude, and generates CNN-ready Mel Spectrograms.
-- 🧠 **Deep CNN Architecture**: A lightweight, PyTorch-based model optimized for edge-device deployment.
-- 🚀 **Streamlit Cloud Ready**: A beautifully designed, zero-gravity "Glassmorphism" web dashboard for real-time inference and visualization.
-- 📊 **Rich Analytics**: Real-time confidence scoring, waveform rendering, and Mel Spectrogram visualization.
+Modern bridges and civil infrastructures often develop internal cracks long before visible failure occurs. These fractures generate high-frequency acoustic emissions that can be captured and analyzed.
 
----
+Deep-AE leverages:
 
-## 🏗️ Architecture & Pipeline
+* 🎧 Acoustic Emission (AE) Analysis
+* 🧠 Convolutional Neural Networks (CNNs)
+* 📊 Mel Spectrogram Feature Engineering
+* 🌐 Interactive AI Dashboard
 
-The Deep-AE pipeline follows a strict, modular flow from raw data to inference:
-
-1. **Preprocessing** (`app/preprocess.py`): Audio is standardized to Mono/22050Hz, silence is trimmed, and amplitude is normalized.
-2. **Spectrogram Generation** (`app/spectrogram_generator.py`): Audio is converted into 128-band Mel Spectrograms (in decibel scale) and saved as 128x128 PNG images.
-3. **CNN Training** (`app/train.py`): PyTorch Dataset loaders feed the spectrograms into a custom `DeepAE_CNN` model with dynamic learning rate optimization and early stopping.
-4. **Inference/Dashboard** (`app.py`): The Streamlit UI accepts new audio, runs the exact preprocessing pipeline in-memory (no disk I/O), and runs a forward pass through the trained model to yield confidence scores.
+to identify crack-related structural anomalies from audio signals in real time.
 
 ---
 
-## 📸 Screenshots
+# ✨ Features
 
-| Dashboard Home | Prediction Results |
-| :---: | :---: |
-| ![Dashboard Home](assets/dashboard_home_placeholder.png) | ![Prediction Results](assets/prediction_placeholder.png) |
-*(Replace placeholders with actual UI screenshots in the `assets/` folder)*
-
----
-
-## ⚙️ Tech Stack
-- **Backend & ML**: `Python 3.x`, `PyTorch`, `Torchvision`
-- **Audio DSP**: `Librosa`, `SoundFile`
-- **Data Visualization**: `Matplotlib`, `NumPy`
-- **Frontend / UI**: `Streamlit`, Custom CSS (Glassmorphism & CSS Animations)
+✅ Audio Preprocessing Pipeline
+✅ Mel Spectrogram Generation
+✅ CNN-Based Crack Classification
+✅ Real-Time Audio Prediction
+✅ Modern AI Monitoring Dashboard
+✅ WAV / MP3 / FLAC Support
+✅ Interactive Visualizations
+✅ Confidence Score Analytics
+✅ Streamlit Web Interface
+✅ Modular Production-Style Architecture
 
 ---
 
-## 🚀 Quick Setup & Installation
+# 🧠 AI Pipeline
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/yourusername/Deep-AE.git
-cd Deep-AE
+```text
+Audio Input
+     ↓
+Preprocessing
+     ↓
+Mel Spectrogram Generation
+     ↓
+CNN Feature Extraction
+     ↓
+Crack / Healthy Prediction
+     ↓
+Interactive Dashboard Visualization
 ```
 
-### 2. Create a Virtual Environment (Recommended)
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows use: venv\Scripts\activate
+---
+
+# 🏗 System Architecture
+
+## Core Components
+
+| Module                | Description                                 |
+| --------------------- | ------------------------------------------- |
+| Audio Preprocessing   | Resampling, normalization, silence trimming |
+| Spectrogram Generator | Converts audio into Mel Spectrogram images  |
+| CNN Model             | Learns acoustic crack patterns              |
+| Prediction Engine     | Runs real-time inference                    |
+| Streamlit Dashboard   | Interactive monitoring interface            |
+
+---
+
+# 📂 Project Structure
+
+```text
+Deep-AE/
+│
+├── app/
+├── assets/
+├── docs/
+├── logs/
+├── models/
+│   └── deepae_cnn.pth
+│
+├── utils/
+├── sample_audio/
+│
+├── app.py
+├── preprocess.py
+├── spectrogram_generator.py
+├── train.py
+├── predict.py
+├── requirements.txt
+└── README.md
 ```
 
-### 3. Install Dependencies
+---
+
+# 🔬 Technologies Used
+
+## Machine Learning
+
+* PyTorch
+* CNN (Convolutional Neural Networks)
+
+## Audio Processing
+
+* Librosa
+* NumPy
+* SoundFile
+
+## Visualization
+
+* Matplotlib
+* Plotly
+
+## Dashboard
+
+* Streamlit
+
+---
+
+# 🎵 Supported Audio Formats
+
+* WAV
+* MP3
+* FLAC
+
+---
+
+# ⚙️ Installation
+
+## Clone Repository
+
+```bash
+git clone YOUR_REPOSITORY_LINK
+cd deep-ae-acoustic-crack-detection
+```
+
+---
+
+## Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
 ---
 
-## 🎮 Usage Instructions
+# 🚀 Running the Application
 
-### 1. Running the Web Dashboard (Streamlit)
-To launch the modern Glassmorphism UI locally:
+## Launch Dashboard
+
 ```bash
 streamlit run app.py
 ```
-*Navigate to `http://localhost:8501` in your browser. You can test the platform using the audio files provided in the `sample_audio/` folder.*
 
-### 2. Running CLI Inference
-To test an audio file directly from the terminal without the UI:
-```bash
-python app/predict.py sample_audio/test_audio.wav --save-chart
+Then open:
+
+```text
+http://localhost:8501
 ```
 
-### 3. Retraining the Model (Optional)
-If you wish to retrain the CNN on a custom dataset:
-1. Place raw audio in `dataset/raw/crack/` and `dataset/raw/healthy/`.
-2. Run the preprocessing pipeline: `python app/preprocess.py`
-3. Generate spectrograms: `python app/spectrogram_generator.py`
-4. Train the model: `python app/train.py`
+---
+
+# 🧪 Model Training
+
+```bash
+python train.py
+```
 
 ---
 
-## 🌐 Deployment Instructions
+# 🔍 Run Prediction
 
-This repository is strictly organized to be deployed directly to **Streamlit Community Cloud**:
-1. Push this repository to GitHub.
-2. Go to [share.streamlit.io](https://share.streamlit.io/).
-3. Connect your GitHub account and select this repository.
-4. Set the Main file path to `app.py`.
-5. Click **Deploy**. Streamlit will automatically read `requirements.txt` and build the environment.
-
-See `deployment_notes.md` for advanced deployment strategies (e.g., FastAPI, Docker).
+```bash
+python predict.py sample_audio/test_audio.wav
+```
 
 ---
 
-## 🔮 Future Scope
-- **Edge Deployment**: Converting the PyTorch `.pth` model to ONNX or TensorFlow Lite for Raspberry Pi integration.
-- **Continuous Monitoring**: Integrating REST APIs (FastAPI) to handle live microphone streams rather than static file uploads.
-- **Multi-Class Anomalies**: Expanding the dataset to identify specific *types* of structural damage (e.g., micro-fractures, delamination).
+# 📊 Dashboard Features
+
+The Deep-AE dashboard provides:
+
+* 🎧 Audio Upload & Playback
+* 📈 Waveform Visualization
+* 🌈 Mel Spectrogram Visualization
+* 🧠 AI Prediction System
+* 📊 Confidence Analytics
+* ⚡ Real-Time Monitoring Interface
 
 ---
 
-## 📜 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+# 📈 Future Improvements
+
+* Real-Time Live Monitoring
+* Edge AI Deployment (Raspberry Pi)
+* Vibration Sensor Fusion
+* Thermal Imaging Integration
+* Transformer-Based Audio Models
+* Cloud Monitoring Infrastructure
+
+---
+
+# 🎯 Applications
+
+* Structural Health Monitoring
+* Bridge Monitoring
+* Smart Infrastructure
+* Industrial Safety Systems
+* Acoustic Anomaly Detection
+* Predictive Maintenance
+
+---
+
+# 📸 Dashboard Preview
+
+> <img width="1343" height="662" alt="image" src="https://github.com/user-attachments/assets/617c7138-3332-414d-8392-fd694a732263" />
+> <img width="1385" height="495" alt="image" src="https://github.com/user-attachments/assets/c8c217cf-275a-407f-bd0e-887fda402619" />
+
+
+
+```text
+assets/dashboard_preview.png
+```
+
+---
+
+# 👨‍💻 Author
+
+**Ashmit Anand**
+
+AI/ML + Structural Monitoring Project
+
+---
+
+# 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+# ⭐ Acknowledgements
+
+Special thanks to:
+
+* Open-source ML community
+* PyTorch
+* Streamlit
+* Librosa
+* Kaggle datasets used for experimentation
+
+---
+
+# 🚀 Deep-AE
+
+### “Listening to Structural Integrity with AI”
